@@ -47,8 +47,8 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <a href="mailto:hello@mysocietycoach.com" className="text-[14.5px] text-ink/80 transition-colors hover:text-orange">
-                  hello@mysocietycoach.com
+                <a href="mailto:info@mysocietycoach.com" className="text-[14.5px] text-ink/80 transition-colors hover:text-orange">
+                  info@mysocietycoach.com
                 </a>
               </li>
             </ul>
