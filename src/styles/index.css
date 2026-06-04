@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS — Tailwind v4 @theme
+   Aesthetic: editorial / athletic-premium.
+   Warm paper neutrals · near-black ink · single disciplined
+   orange accent · semantic green only for "verified".
+   ============================================================ */
+@theme {
+  --color-ink: #0e1015;
+  --color-ink-soft: #191c24;
+  --color-ink-line: #2a2e38;
+
+  --color-orange: #ff5a36;
+  --color-orange-dark: #e8431f;
+
+  --color-paper: #f6f3ee;
+  --color-paper-deep: #ece7dd;
+  --color-line: #e3ddd1;
+  --color-line-soft: #efeae0;
+
+  --color-clay: #6b665c; /* muted body text on paper */
+  --color-verify: #1f9d57; /* semantic verified green */
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased overflow-x-hidden;
+    line-height: 1.55;
+    font-feature-settings: "ss01";
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+    letter-spacing: -0.02em;
+    line-height: 1.04;
+  }
+  /* offset anchored sections for the sticky header */
+  section[id] {
+    scroll-margin-top: 96px;
+  }
+  ::selection {
+    background: var(--color-orange);
+    color: #fff;
+  }
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-[1200px] px-6 md:px-8;
+  }
+  /* mono eyebrow label */
+  .eyebrow {
+    @apply font-mono text-[12px] font-medium uppercase tracking-[0.22em];
+  }
+  /* native select with custom chevron */
+  .select-field {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b665c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 42px;
+  }
+  /* subtle dotted texture for dark panels */
+  .dot-grid {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  .dot-grid-ink {
+    background-image: radial-gradient(rgba(14, 16, 21, 0.06) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.22, 0.7, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+.modal-overlay {
+  animation: overlayIn 0.2s ease both;
+}
+.modal-panel {
+  animation: panelIn 0.24s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .marquee-track { animation: none; }
+  .modal-overlay,
+  .modal-panel { animation: none; }
+  html { scroll-behavior: auto; }
+}
