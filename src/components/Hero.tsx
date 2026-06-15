@@ -57,15 +57,15 @@ export default function Hero() {
           </div>
         </div>
 
-     <div className="px-2 sm:px-10 lg:px-0">
-            <div className="hidden lg:block">
-              <CoachCardMock />
-            </div>
-            <div className="lg:hidden">
-              <WaitlistForm />
-            </div>
-          </div>
-        </div>
+  <div className="lg:px-0">
+    <div className="hidden px-2 sm:px-10 lg:block lg:px-0">
+      <CoachCardMock />
+    </div>
+    <div className="lg:hidden">
+      <WaitlistForm />
+    </div>
+  </div>
+</div>
 
         <StatsBand className="hidden lg:block" />
       </section>
