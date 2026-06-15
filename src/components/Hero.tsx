@@ -1,8 +1,10 @@
+import StatsBand from './StatsBand'
 import { useState } from 'react'
 import { MapPin, ArrowRight, BadgeCheck } from 'lucide-react'
 import { goToWaitlist } from '@/lib/scroll'
-import { STATS } from '@/data/content'
 import CoachCardMock from './CoachCardMock'
+import WaitlistForm from './WaitlistForm'
+
 
 export default function Hero() {
   const [society, setSociety] = useState('')
@@ -11,11 +13,11 @@ export default function Hero() {
     <section id="top" className="relative overflow-hidden">
       <div className="dot-grid-ink pointer-events-none absolute inset-0 opacity-50" />
 
-      <div className="wrap relative grid grid-cols-1 items-center gap-12 pb-16 pt-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-24 lg:pt-20">
+      <div className="wrap relative grid grid-cols-1 items-center gap-12 pb-16 pt-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-24 lg:pt-20">
         <div>
-          <span className="eyebrow inline-flex items-center gap-2 text-orange">
-            <BadgeCheck size={15} /> Hyperlocal sports, verified coaches
-          </span>
+          <span className="eyebrow inline-flex items-start gap-2 text-orange">
+  <BadgeCheck size={15} className="mt-0.5 shrink-0" /> Hyperlocal sports, verified coaches
+</span>
 
           <h1 className="mt-5 text-[clamp(33px,7.5vw,68px)] font-medium leading-[1.0] tracking-[-0.025em]">
             Your child&rsquo;s coach,
@@ -28,7 +30,7 @@ export default function Hero() {
             court in Noida. No traffic, no travel &mdash; just send them downstairs and play.
           </p>
 
-          <div className="mt-8 flex max-w-[500px] flex-col gap-2.5 sm:flex-row sm:items-center">
+          <div className="mt-8 hidden max-w-[500px] flex-col gap-2.5 lg:flex lg:flex-row lg:items-center">
             <div className="flex flex-1 items-center gap-2.5 rounded-full border border-line bg-white py-2.5 pl-5 pr-2.5 shadow-sm">
               <MapPin size={18} className="shrink-0 text-orange" />
               <input
@@ -49,34 +51,23 @@ export default function Hero() {
             </button>
           </div>
 
-          <div className="mt-5 flex items-center gap-2 text-[13px] text-clay">
+          <div className="mt-5 hidden items-center gap-2 text-[13px] text-clay lg:flex">
             <BadgeCheck size={15} className="text-verify" />
             Every coach is ID &amp; background-verified before they ever list.
           </div>
         </div>
 
-        <div className="px-2 sm:px-10 lg:px-0">
-          <CoachCardMock />
-        </div>
-      </div>
-
-      <div className="border-y border-line bg-paper-deep/60">
-        <div className="wrap grid grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-line">
-          {STATS.map((s, i) => (
-            <div
-              key={s.label}
-              className={`py-7 ${i % 2 === 0 ? 'pr-5' : 'pl-5'} lg:px-8 ${
-                i < 2 ? 'border-b border-line lg:border-b-0' : ''
-              }`}
-            >
-              <div className="font-display text-[34px] font-medium leading-none tracking-tight">
-                {s.value}
-              </div>
-              <div className="mt-2 text-[13px] leading-snug text-clay">{s.label}</div>
+     <div className="px-2 sm:px-10 lg:px-0">
+            <div className="hidden lg:block">
+              <CoachCardMock />
             </div>
-          ))}
+            <div className="lg:hidden">
+              <WaitlistForm />
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+
+        <StatsBand className="hidden lg:block" />
+      </section>
   )
 }

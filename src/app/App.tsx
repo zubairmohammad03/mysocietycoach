@@ -1,3 +1,4 @@
+import StatsBand from '@/components/StatsBand'
 import { WaitlistModalProvider } from '@/context/waitlist-modal'
 import AnnouncementBar from '@/components/AnnouncementBar'
 import Navbar from '@/components/Navbar'
@@ -22,6 +23,7 @@ export default function App() {
         <Hero />
         <Waitlist />
         <TrustStrip />
+        <StatsBand className="lg:hidden" />
         <HowItWorks />
         <TheShift />
         <Sports />

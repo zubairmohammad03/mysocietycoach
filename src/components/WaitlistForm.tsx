@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { SPORTS_OPTIONS, CHILD_AGES, SOCIETY_POSITIONS } from '@/data/content'
+import { SPORTS_OPTIONS, CHILD_AGES, SOCIETY_POSITIONS, CITIES } from '@/data/content'
 import { submitWaitlist, type WaitlistRole } from '@/lib/submitWaitlist'
 import { TextField, SelectField, SubmitButton, FormSuccess } from './FormFields'
 
@@ -75,6 +75,7 @@ export default function WaitlistForm() {
             <TextField name="name" label="Parent / student name" placeholder="e.g., Deepanshu" required />
             <TextField name="phone" label="Phone number" type="tel" inputMode="tel" placeholder="e.g., 98XXXXXXXX" required />
             <TextField name="society" label="Housing society" placeholder="e.g., Cleo County, Sector 121" required />
+            <SelectField name="city" label="City" placeholder="Select city" options={CITIES} />
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <SelectField name="childAge" label={'Child\u2019s age'} placeholder="Select age" options={CHILD_AGES} />
               <SelectField name="sport" label="Sport" placeholder="Select sport" options={SPORTS_OPTIONS} />
@@ -102,6 +103,7 @@ export default function WaitlistForm() {
             <TextField name="name" label="Name" placeholder="e.g., Rajesh Kumar" required />
             <TextField name="phone" label="Phone number" type="tel" inputMode="tel" placeholder="e.g., 98XXXXXXXX" required />
             <TextField name="society" label="Society name" placeholder="e.g., Cleo County, Sector 121" required />
+            <SelectField name="city" label="City" placeholder="Select city" options={CITIES} />
             <SelectField name="position" label="Your position" placeholder="Select position" options={SOCIETY_POSITIONS} />
             <TextField name="facilities" label="Sports facilities available" placeholder="e.g., Tennis court, badminton court, pool" required />
             <TextField name="coaching" label="Sports coaching required" placeholder="e.g., Cricket, Swimming, Karate" required />
@@ -128,6 +130,7 @@ export default function WaitlistForm() {
             <TextField name="name" label="Coach name" placeholder="e.g., Coach Amit" required />
             <TextField name="phone" label="Phone number" type="tel" inputMode="tel" placeholder="e.g., 98XXXXXXXX" required />
             <SelectField name="sport" label="Primary sport" placeholder="Select primary sport" options={SPORTS_OPTIONS} />
+            <SelectField name="city" label="City" placeholder="Select city" options={CITIES} />
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <TextField name="experience" label="Experience" placeholder="e.g., 5 years" required />
               <TextField name="location" label="Location" placeholder="e.g., Sector 78" required />

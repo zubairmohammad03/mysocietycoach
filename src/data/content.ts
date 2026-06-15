@@ -22,6 +22,7 @@ export const SPORTS_OPTIONS = [
 export const CHILD_AGES = Array.from({ length: 13 }, (_, i) => `${i + 3} years`) // 3-15
 
 export const SOCIETY_POSITIONS = ['AoA President', 'AoA Member', 'Other'] as const
+export const CITIES = ['Noida', 'Greater Noida', 'Indirapuram', 'Vaishali', 'Delhi', 'Gurgaon', 'Faridabad'] as const
 
 /* ---------- Hero stats (true-by-design, not traction claims) ---------- */
 export interface Stat { value: string; label: string }

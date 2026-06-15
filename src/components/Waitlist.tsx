@@ -2,10 +2,11 @@ import { Gift, Building2, Trophy } from 'lucide-react'
 import SectionHeading from './SectionHeading'
 import Reveal from './Reveal'
 import WaitlistForm from './WaitlistForm'
+import CoachCardMock from './CoachCardMock'
 
 export default function Waitlist() {
   return (
-    <section id="waitlist" className="py-16 sm:py-20 lg:py-24">
+    <section id="waitlist" className="pb-16 pt-0 sm:py-20 lg:py-24">
       <div className="wrap grid grid-cols-1 items-start gap-14 lg:grid-cols-[0.85fr_1fr] lg:gap-20">
         {/* left: pitch */}
         <div className="lg:sticky lg:top-24">
@@ -53,8 +54,13 @@ export default function Waitlist() {
 
         {/* right: form */}
         <Reveal>
-          <WaitlistForm />
-        </Reveal>
+  <div className="hidden lg:block">
+    <WaitlistForm />
+  </div>
+  <div className="lg:hidden">
+    <CoachCardMock />
+  </div>
+</Reveal>
       </div>
     </section>
   )

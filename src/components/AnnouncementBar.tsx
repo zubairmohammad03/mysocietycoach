@@ -2,7 +2,7 @@ import { goToWaitlist } from '@/lib/scroll'
 
 export default function AnnouncementBar() {
   return (
-    <div className="bg-ink text-paper">
+    <div className="hidden bg-ink text-paper lg:block ...">
       <button
         onClick={() => goToWaitlist('Announcement bar')}
         className="wrap flex h-9 w-full items-center justify-center gap-2 text-center"
