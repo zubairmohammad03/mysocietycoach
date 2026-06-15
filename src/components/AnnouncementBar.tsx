@@ -9,7 +9,7 @@ export default function AnnouncementBar() {
       >
         <span className="h-1.5 w-1.5 rounded-full bg-orange" />
         <span className="font-mono text-[11.5px] uppercase tracking-[0.18em] text-paper/80">
-          Now onboarding societies across Noida &amp; Greater Noida
+          Now onboarding societies across Delhi-NCR
         </span>
         <span className="hidden font-mono text-[11.5px] uppercase tracking-[0.18em] text-orange sm:inline">
           → Join the waitlist
